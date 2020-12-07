@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:id="@+id/constarintLayout"
     android:background="@drawable/background">
 
     <ImageView
@@ -24,6 +25,7 @@
         android:layout_height="136dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/man"
+        app:civ_border_overlay="false"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
