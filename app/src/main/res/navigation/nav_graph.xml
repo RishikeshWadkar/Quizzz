@@ -10,8 +10,15 @@
         android:label="fragment_start_playing"
         tools:layout="@layout/fragment_start_playing" >
         <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
+
             android:id="@+id/action_startPlaying_to_firstQuestion"
-            app:destination="@id/firstQuestion" />
+            app:destination="@id/firstQuestion"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/firstQuestion"
@@ -19,16 +26,77 @@
         android:label="fragment_first_question"
         tools:layout="@layout/fragment_first_question" >
         <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
             android:id="@+id/action_firstQuestion_to_secondQuestion"
-            app:destination="@id/secondQuestion" />
+            app:destination="@id/secondQuestion"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <argument
+            android:name="points"
+            app:argType="integer"
+            android:defaultValue="20" />
+        <argument
+            android:name="i2"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
+            android:id="@+id/action_firstQuestion_to_gameOver"
+            app:destination="@id/gameOver"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/secondQuestion"
         android:name="com.rishikeshwadkar.gamequiz.SecondQuestion"
         android:label="fragment_second_question"
         tools:layout="@layout/fragment_second_question" >
+        <argument
+            android:name="i2"
+            app:argType="integer" />
+        <argument
+            android:name="points"
+            app:argType="integer" />
         <action
-            android:id="@+id/action_secondQuestion_to_startPlaying"
-            app:destination="@id/startPlaying" />
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
+            android:id="@+id/action_secondQuestion_to_firstQuestion"
+            app:destination="@id/firstQuestion"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
+            android:id="@+id/action_secondQuestion_to_gameOver"
+            app:destination="@id/gameOver"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/gameOver"
+        android:name="com.rishikeshwadkar.gamequiz.GameOver"
+        android:label="fragment_game_over"
+        tools:layout="@layout/fragment_game_over" >
+        <argument
+            android:name="gameOverpoints"
+            app:argType="integer"
+            android:defaultValue="30" />
+        <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_gameOver_to_startPlaying2"
+            app:destination="@id/startPlaying"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
 </navigation>

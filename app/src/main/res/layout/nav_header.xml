@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,27 +8,31 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_header_image"
-        android:layout_width="91dp"
-        android:layout_height="85dp"
+        android:layout_width="74dp"
+        android:layout_height="76dp"
         app:layout_constraintBottom_toTopOf="@+id/nav_header_tv"
         app:layout_constraintDimensionRatio=""
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         tools:src="@drawable/man" />
 
     <TextView
         android:id="@+id/nav_header_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/museo900"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_header_image"
         tools:text="Rishikesh Wadkar" />
 
 

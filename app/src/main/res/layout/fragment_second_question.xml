@@ -136,20 +136,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/secondNavMenuBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_menu_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/points"
-        android:layout_width="18dp"
+        android:layout_width="43dp"
         android:layout_height="25dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
@@ -160,6 +149,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/secondpointsBG"
         app:layout_constraintEnd_toEndOf="@+id/secondpointsBG"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/secondpointsBG"
         app:layout_constraintTop_toTopOf="@+id/secondpointsBG"
         app:layout_constraintVertical_bias="0.0" />

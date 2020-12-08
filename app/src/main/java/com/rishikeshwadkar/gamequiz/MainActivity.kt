@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             var name = etEnterName.text.toString()
             if(name != ""){
                 val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("name",name)
+                intent.putExtra("temp",temp.toString())
                 startActivity(intent)
             }
             else{

@@ -35,6 +35,27 @@
         <item>Operating System</item>
     </string-array>
 
+    <string-array name="ans2">
+        <item>HDD</item>
+        <item>CPU</item>
+        <item>RAM</item>
+        <item>Monitor</item>
+    </string-array>
+
+    <string-array name="ans3">
+        <item>Play Video</item>
+        <item>Browsing</item>
+        <item>Computer Gaming</item>
+        <item>None of above</item>
+    </string-array>
+
+    <string-array name="ans4">
+        <item>Steve Jobs</item>
+        <item>Sundar Pichai</item>
+        <item>Bill Gates</item>
+        <item>Satya Nadella</item>
+    </string-array>
+
     <string name="open">open</string>
     <string name="close">close</string>
     <!-- TODO: Remove or change this placeholder text -->
