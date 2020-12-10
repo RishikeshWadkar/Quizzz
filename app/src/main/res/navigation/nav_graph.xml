@@ -19,6 +19,14 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_startPlaying_to_aboutUs"
+            app:destination="@id/miAbout"
+
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/firstQuestion"
@@ -51,6 +59,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_firstQuestion_to_aboutUs"
+            app:destination="@id/miAbout" />
     </fragment>
     <fragment
         android:id="@+id/secondQuestion"
@@ -81,6 +92,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_secondQuestion_to_aboutUs"
+            app:destination="@id/miAbout" />
     </fragment>
     <fragment
         android:id="@+id/gameOver"
@@ -98,5 +112,58 @@
             app:destination="@id/startPlaying"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_gameOver_to_aboutUs"
+            app:destination="@id/miAbout" />
+    </fragment>
+    <fragment
+        android:id="@+id/miAbout"
+        android:name="com.rishikeshwadkar.gamequiz.AboutUs"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" >
+        <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
+
+            android:id="@+id/action_aboutUs_to_startPlaying"
+            app:destination="@id/startPlaying"
+
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            app:popUpTo="@+id/startPlaying"
+            app:popUpToInclusive="false"
+
+            android:id="@+id/action_aboutUs_to_firstQuestion"
+            app:destination="@id/firstQuestion"
+
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_aboutUs_to_secondQuestion"
+            app:destination="@id/secondQuestion"
+
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/startPlaying"
+            app:popUpToInclusive="false" />
+        <action
+
+            android:id="@+id/action_aboutUs_to_gameOver"
+            app:destination="@id/gameOver"
+
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/startPlaying"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>

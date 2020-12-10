@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.activity_second.*
 import kotlinx.android.synthetic.main.fragment_start_playing.*
 
 class StartPlaying : Fragment() {
@@ -24,6 +25,13 @@ class StartPlaying : Fragment() {
         startPlayingButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_startPlaying_to_firstQuestion)
         }
+
+//        navigationView.setNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.miAbout -> Navigation.findNavController(view).navigate(R.id.action_startPlaying_to_aboutUs)
+//            }
+//            true
+//        }
     }
 
 
