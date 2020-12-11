@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/startPlaying">
+    app:startDestination="@id/miHome">
     <fragment
-        android:id="@+id/startPlaying"
+        android:id="@+id/miHome"
         android:name="com.rishikeshwadkar.gamequiz.StartPlaying"
         android:label="fragment_start_playing"
         tools:layout="@layout/fragment_start_playing" >
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
 
             android:id="@+id/action_startPlaying_to_firstQuestion"
@@ -34,7 +34,7 @@
         android:label="fragment_first_question"
         tools:layout="@layout/fragment_first_question" >
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
             android:id="@+id/action_firstQuestion_to_secondQuestion"
             app:destination="@id/secondQuestion"
@@ -51,7 +51,7 @@
             app:argType="integer"
             android:defaultValue="0" />
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
             android:id="@+id/action_firstQuestion_to_gameOver"
             app:destination="@id/gameOver"
@@ -75,7 +75,7 @@
             android:name="points"
             app:argType="integer" />
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
             android:id="@+id/action_secondQuestion_to_firstQuestion"
             app:destination="@id/firstQuestion"
@@ -84,7 +84,7 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
             android:id="@+id/action_secondQuestion_to_gameOver"
             app:destination="@id/gameOver"
@@ -106,10 +106,10 @@
             app:argType="integer"
             android:defaultValue="30" />
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="true"
             android:id="@+id/action_gameOver_to_startPlaying2"
-            app:destination="@id/startPlaying"
+            app:destination="@id/miHome"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
         <action
@@ -122,18 +122,18 @@
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" >
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
 
             android:id="@+id/action_aboutUs_to_startPlaying"
-            app:destination="@id/startPlaying"
+            app:destination="@id/miHome"
 
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
         <action
-            app:popUpTo="@+id/startPlaying"
+            app:popUpTo="@+id/miHome"
             app:popUpToInclusive="false"
 
             android:id="@+id/action_aboutUs_to_firstQuestion"
@@ -152,7 +152,7 @@
 
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
-            app:popUpTo="@id/startPlaying"
+            app:popUpTo="@id/miHome"
             app:popUpToInclusive="false" />
         <action
 
@@ -163,7 +163,7 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
-            app:popUpTo="@id/startPlaying"
+            app:popUpTo="@id/miHome"
             app:popUpToInclusive="false" />
     </fragment>
 </navigation>

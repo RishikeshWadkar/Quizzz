@@ -18,33 +18,33 @@ import kotlinx.android.synthetic.main.fragment_first_question.view.*
 
 class FirstQuestion : Fragment() {
 
-    private val args: SecondQuestionArgs by navArgs()
-    private var points: Int = 10
-    private var i = 0
+    private val args: SecondQuestionArgs by navArgs() // communicating between SecondFragment
+    private var points: Int = 10 //Default user points
+    private var i = 0 // it is used to take backup of current question
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_first_question, container, false)
     }
 
-
+//=======================================================< Main Code >=========================================================================
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        i = args.i2
-        points = args.points
+        i = args.i2 // taking current question's index
+        points = args.points // assigning current points
 
+        //Enabling all toggle buttons
         toggleButton1.isEnabled = true
         toggleButton2.isEnabled = true
         toggleButton3.isEnabled = true
         toggleButton4.isEnabled = true
 
-        points = args.points
-        view.points.text = points.toString()
+        view.points.text = points.toString() //assigning points to textView
+        questionTV.text = resources.getStringArray(R.array.Questions)[i] // Question text based upon the index number i.e [i]
 
-        questionTV.text = resources.getStringArray(R.array.Questions)[i]
-
+        //setting options text using index of question
         if(i==0){
             toggleButton1.text = resources.getStringArray(R.array.ans0)[0]
             toggleButton1.textOn = resources.getStringArray(R.array.ans0)[0]
@@ -61,7 +61,6 @@ class FirstQuestion : Fragment() {
             toggleButton4.text = resources.getStringArray(R.array.ans0)[3]
             toggleButton4.textOn = resources.getStringArray(R.array.ans0)[3]
             toggleButton4.textOff = resources.getStringArray(R.array.ans0)[3]
-
         }
         else if(i==2){
             toggleButton1.text = resources.getStringArray(R.array.ans2)[0]
@@ -98,9 +97,11 @@ class FirstQuestion : Fragment() {
             toggleButton4.textOff = resources.getStringArray(R.array.ans4)[3]
         }
 
+//=========================================================< optionsClickListener >=======================================================================
 
         toggleButton1.setOnClickListener {
-            ansChecker(i,1)
+            ansChecker(i,1) // calling function with question index no. and caller button no.
+            //there are 5 questions only so if index is 4 then to understand its last question this condition is being used
             if(i<4){
                 Handler().postDelayed({
                     i++
@@ -109,12 +110,13 @@ class FirstQuestion : Fragment() {
                 },1000)
             }
             else{
-                Toast.makeText(activity, "${points}", Toast.LENGTH_SHORT).show()
                 Handler().postDelayed({
                     val action = FirstQuestionDirections.actionFirstQuestionToGameOver(points)
                     Navigation.findNavController(view).navigate(action)
                 },1000)
             }
+
+            // because of postDelay user cant click on another option while that 1 sec delay that's why buttons getting disabled
             toggleButton1.isEnabled = false
             toggleButton2.isEnabled = false
             toggleButton3.isEnabled = false
@@ -186,22 +188,25 @@ class FirstQuestion : Fragment() {
         }
     }
 
-//------------------------------Functions--------------------------------------
-
-
-
-
+//======================================================< Functions >==========================================================================
+    /*
+    ansChecker do check the question by index and who is the caller
+    and if question index and caller index (options) matched then
+    declare ans is correct and color it green
+    and increase the points
+    else color it red and decrease points
+    */
     fun ansChecker(i:Int,caller:Int){
         if(i==0){
             if(caller==1){
                 points += 20
-                ansSetter(caller)
+                ansSetter(caller) //to color it green
             }
             else{
                 points -= 5
                 ansGray()
-                ansSetter(1)
-                ansWrong(caller)
+                ansSetter(1) //to color correct ans green
+                ansWrong(caller) // to color selected ans red
             }
         }
         else if(i==1){
@@ -242,7 +247,7 @@ class FirstQuestion : Fragment() {
         }
     }
 
-
+    //make color gray of all buttons
     fun ansGray(){
         toggleButton1.setBackgroundResource(R.drawable.graybtn)
         toggleButton2.setBackgroundResource(R.drawable.graybtn)
@@ -250,6 +255,7 @@ class FirstQuestion : Fragment() {
         toggleButton4.setBackgroundResource(R.drawable.graybtn)
     }
 
+    //make color green of caller
     private fun ansSetter(ans: Int){
         if(ans==1){
             ansGray()
@@ -269,21 +275,18 @@ class FirstQuestion : Fragment() {
         }
     }
 
+    //make color red of caller
     fun ansWrong(ans: Int){
         if(ans==1){
-
             toggleButton1.setBackgroundResource(R.drawable.redbtn)
         }
         else if(ans==2){
-
             toggleButton2.setBackgroundResource(R.drawable.redbtn)
         }
         else if(ans==3){
-
             toggleButton3.setBackgroundResource(R.drawable.redbtn)
         }
         else if(ans==4){
-
             toggleButton4.setBackgroundResource(R.drawable.redbtn)
         }
     }

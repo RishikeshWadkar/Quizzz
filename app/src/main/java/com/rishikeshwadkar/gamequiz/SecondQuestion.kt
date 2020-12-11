@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.fragment_second_question.view.*
 
 class SecondQuestion : Fragment() {
 
+    //same as FragmentFirst
+
     private val args: SecondQuestionArgs by navArgs()
     private var i: Int = 0
     private var points: Int = 0

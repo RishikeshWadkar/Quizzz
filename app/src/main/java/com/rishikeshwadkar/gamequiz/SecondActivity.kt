@@ -24,56 +24,46 @@ import kotlinx.android.synthetic.main.nav_header.view.*
 
 class SecondActivity : AppCompatActivity(){
 
-    //lateinit var toggle: ActionBarDrawerToggle
     lateinit var navController: NavController
-    private val startPlaying = StartPlaying()
-
-    private var currentFragment: Fragment = startPlaying
-    val fragmentManager: FragmentManager = supportFragmentManager
-    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        val name = intent.getStringExtra("name")
-        val temp = intent.getStringExtra("temp")
+        val name = intent.getStringExtra("name") // tacking name of the user from first activity
+        val temp = intent.getStringExtra("temp") // tacking temp value to validate the profile photo
 
-        navController = Navigation.findNavController(this,R.id.navHost)
+        navController = Navigation.findNavController(this,R.id.navHost) //takes fragment container and control it
         NavigationUI.setupWithNavController(navigationView,navController)
-       // NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
+        //NavigationUI is for dependencies and it takes sidebar i.e NavigationView and navController
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) //idk the use
 
-        val navigationView: NavigationView = navigationView
-        val headerView: View = navigationView.getHeaderView(0)
+        val navigationView: NavigationView = navigationView // it takes reference of NavigationView
+        val headerView: View = navigationView.getHeaderView(0) //it takes reference of headerView
 
         headerView.nav_header_tv.text = name
-        if(temp == "1"){
-            headerView.nav_header_image.setImageResource(R.drawable.man)
-        }
-        else if(temp == "2"){
-            headerView.nav_header_image.setImageResource(R.drawable.woman)
-        }
-        else{
-            headerView.nav_header_image.setImageResource(R.drawable.reaper)
+        //assigning the profile image
+        when (temp) {
+            "1" -> {
+                headerView.nav_header_image.setImageResource(R.drawable.man)
+            }
+            "2" -> {
+                headerView.nav_header_image.setImageResource(R.drawable.woman)
+            }
+            else -> {
+                headerView.nav_header_image.setImageResource(R.drawable.reaper)
+            }
         }
 
-        val drawer: DrawerLayout = drawerLayout
+        val drawer: DrawerLayout = drawerLayout //it takes reference of DrawerLayout
+        //to open drawer by custom button
         navMenuBtn.setOnClickListener {
             drawer.openDrawer(GravityCompat.START)
         }
-
-//        navigationView.setNavigationItemSelectedListener {
-//            when(it.itemId){
-//                R.id.miAbout -> {loadFragment(aboutUs)
-//                    currentFragment = aboutUs
-//                }
-//            }
-//            true
-//        }
     }
 
+    //it close the navigation drawer when we click on any menu item
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(
                 navController,
@@ -81,29 +71,12 @@ class SecondActivity : AppCompatActivity(){
         )
     }
 
-    fun loadFragment(fragment: Fragment){
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.navHost, fragment).commit()
-        fragmentTransaction.addToBackStack(null)
-    }
-
-    private fun setCurrentFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.navHost, fragment)
-            commit()
-        }
-    }
-
+    //on backPressed check if drawer is open if open then close drawer not activity
     override fun onBackPressed() {
         val drawer: DrawerLayout = drawerLayout
         if (drawer.isDrawerOpen(GravityCompat.START)){
             drawer.closeDrawer(GravityCompat.START)
         }
-//        else if(currentFragment == aboutUs || currentFragment == FirstQuestion() || currentFragment == SecondQuestion()
-//            || currentFragment == GameOver()){
-//            currentFragment = startPlaying
-//        }
         else{
             super.onBackPressed()
         }

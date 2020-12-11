@@ -22,6 +22,7 @@ class AboutUs : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //intent to start instagram app or open url in a browser
         instagramBtn.setOnClickListener {
             val uri: Uri = Uri.parse("https://www.instagram.com/rishikesh_9217/")
             val intent: Intent = Intent(Intent.ACTION_VIEW, uri)
@@ -30,6 +31,39 @@ class AboutUs : Fragment() {
                 startActivity(intent)
             }catch (e: ActivityNotFoundException){
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/rishikesh_9217/")))
+            }
+        }
+
+        linkedinBtn.setOnClickListener {
+            val uri: Uri = Uri.parse("https://www.linkedin.com/in/rishikesh-wadkar-0aa455191/")
+            val intent: Intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.setPackage("com.linkedin.android")
+            try {
+                startActivity(intent)
+            }catch (e: ActivityNotFoundException){
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/rishikesh-wadkar-0aa455191/")))
+            }
+        }
+
+        twitterBtn.setOnClickListener {
+            val uri: Uri = Uri.parse("https://twitter.com/WadkarRishikesh")
+            val intent: Intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.setPackage("com.twitter.android")
+            try {
+                startActivity(intent)
+            }catch (e: ActivityNotFoundException){
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/WadkarRishikesh")))
+            }
+        }
+
+        githubBtn.setOnClickListener {
+            val uri: Uri = Uri.parse("https://github.com/RishikeshWadkar")
+            val intent: Intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.setPackage("com.github.android")
+            try {
+                startActivity(intent)
+            }catch (e: ActivityNotFoundException){
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/RishikeshWadkar")))
             }
         }
     }

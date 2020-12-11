@@ -25,13 +25,6 @@ class StartPlaying : Fragment() {
         startPlayingButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_startPlaying_to_firstQuestion)
         }
-
-//        navigationView.setNavigationItemSelectedListener {
-//            when(it.itemId){
-//                R.id.miAbout -> Navigation.findNavController(view).navigate(R.id.action_startPlaying_to_aboutUs)
-//            }
-//            true
-//        }
     }
 
 
